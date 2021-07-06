@@ -18,7 +18,7 @@ import 'package:pemesanancoffe/model/item_minuman_modeling.dart';
 import 'package:pemesanancoffe/model/keranjang.dart';
 
 import 'package:pemesanancoffe/model/model_edit_dana_bank_modeling.dart';
-import 'package:pemesanancoffe/model/model_edit_dana_virtual_bank.dart';
+import 'package:pemesanancoffe/model/model_edit_dana_saldo.dart';
 
 import 'package:pemesanancoffe/style/conts_color.dart';
 import 'package:pemesanancoffe/style/text_style.dart';
@@ -832,7 +832,24 @@ class _MenuState extends State<Menu> with TickerProviderStateMixin {
                                                                     hargaTotal +
                                                                         int.parse(
                                                                             harga)));
-
+                                                                showDialog(
+                                                                    context:
+                                                                        context,
+                                                                    useRootNavigator:
+                                                                        false,
+                                                                    barrierDismissible:
+                                                                        false,
+                                                                    builder:
+                                                                        (context) =>
+                                                                            Dialog(
+                                                                              elevation: 0.0,
+                                                                              backgroundColor: Colors.transparent,
+                                                                              child: Container(
+                                                                                height: 100,
+                                                                                width: 0,
+                                                                                decoration: BoxDecoration(color: Colors.transparent, image: DecorationImage(image: AssetImage("assets/img/done.gif"))),
+                                                                              ),
+                                                                            ));
                                                                 kjgBox.length;
                                                                 hargaTotal =
                                                                     hargaTotal +
@@ -841,6 +858,11 @@ class _MenuState extends State<Menu> with TickerProviderStateMixin {
                                                                 print(
                                                                     hargaTotal);
                                                               });
+                                                              Timer(
+                                                                  Duration(
+                                                                      seconds:
+                                                                          4),
+                                                                  route);
                                                             },
                                                             child: ItemMinuman(
                                                               foto: photo,
